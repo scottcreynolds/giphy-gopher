@@ -1,6 +1,6 @@
 import React from 'react'
 import { SearchBar, SuggestionBar} from '@giphy/react-components'
-const Search = () => {
+export const Search = () => {
   return (
     <>
       <SearchBar />
