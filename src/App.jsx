@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { SearchInput } from './features/SearchInput'
-import { searchGifs } from './api/giphy'
+import { searchGifs, getTrendingGifs } from './api/giphy'
 import Masonry from 'react-masonry-css'
 
 const breakpointCols = {
@@ -21,9 +21,16 @@ function App() {
     setGifs(results)
   }
 
+  const getTrending = async () => {
+    const results = await getTrendingGifs()
+    console.log(results)
+    setGifs(results)
+  }
+
   return (
     <div className="App">
       <SearchInput handleSearch={handleSearch}/>
+      <button onClick={getTrending}>Get Trending</button>
       <Masonry breakpointCols={breakpointCols} className="results-grid" columnClassName='results-col'>
         {gifs.map((gif) => (
           <div><img src={gif.images.downsized.url} /></div>

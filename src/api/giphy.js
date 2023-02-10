@@ -7,3 +7,11 @@ export const searchGifs = async (query) => {
   const { data } = await response.json()
   return data
 }
+
+export const getTrendingGifs = async () => {
+  const response = await fetch(
+    `https://api.giphy.com/v1/gifs/trending?api_key=${KEY}&limit=25&rating=g`
+  )
+  const { data } = await response.json()
+  return data
+}
