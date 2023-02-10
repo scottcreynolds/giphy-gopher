@@ -53,6 +53,7 @@
 
 .results-col > div > img {
   width: 100%;
+  display: block;
 }
 
 .results-grid {
