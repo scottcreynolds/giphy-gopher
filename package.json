@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@giphy/js-fetch-api": "^4.7.1",
+    "@giphy/react-components": "^6.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
