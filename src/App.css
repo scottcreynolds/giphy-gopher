@@ -40,3 +40,21 @@
 .read-the-docs {
   color: #888;
 }
+
+.results-col {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+
+.results-col > div {
+  background: grey;
+  margin-bottom: 30px;
+}
+
+.results-grid {
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
