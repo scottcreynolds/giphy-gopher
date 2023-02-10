@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { SearchInput } from './features/SearchInput'
 import { searchGifs, getTrendingGifs } from './api/giphy'
+import { RecentSearches } from './features/RecentSearches'
+import { getRecentSearches, addRecentSearch } from './api/user'
 import Masonry from 'react-masonry-css'
 
 const breakpointCols = {
@@ -14,11 +16,13 @@ const breakpointCols = {
 function App() {
   const [count, setCount] = useState(0)
   const [gifs, setGifs] = useState([])
+  const [recentSearches, setRecentSearches] = useState([])
 
   const handleSearch = async (term) => {
     const results = await searchGifs(term)
     console.log(results)
     setGifs(results)
+    setRecentSearches(await addRecentSearch(term))
   }
 
   const getTrending = async () => {
@@ -27,10 +31,16 @@ function App() {
     setGifs(results)
   }
 
+  useEffect(() => {
+    const results = getRecentSearches()
+    setRecentSearches(results)
+  }, [])
+
   return (
     <div className="App">
       <SearchInput handleSearch={handleSearch}/>
       <button onClick={getTrending}>Get Trending</button>
+      <RecentSearches recentSearches={recentSearches} />
       <Masonry breakpointCols={breakpointCols} className="results-grid" columnClassName='results-col'>
         {gifs.map((gif) => (
           <div><img src={gif.images.downsized.url} /></div>
