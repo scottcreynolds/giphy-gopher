@@ -51,10 +51,19 @@
   border-radius: 5px;
 }
 
+.giphy-search {
+  background: linear-gradient(45deg, rgb(153, 51, 255) 0%, rgb(255, 102, 102) 100%)
+}
+
+.giphy-trending {
+  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
 input.search {
   border: 0;
   padding: 0.5em;
   width: 65%;
+  background: white;
 }
 
 button.search {

@@ -1,6 +1,5 @@
-//create a react arrow function component called SearchInput and export it
-
 import {useState} from 'react'
+import { AiOutlineSearch } from 'react-icons/ai'
 
 export const SearchInput = ({handleSearch}) => {
   const [term, setTerm] = useState('')
@@ -17,7 +16,7 @@ export const SearchInput = ({handleSearch}) => {
   return (
     <>
       <input className="search" type="text" placeholder='Search' value={term} onChange={handleChange} />
-      <button className='search' onClick={handleSubmit}>Go</button>
+      <button title="Search" className='search giphy-search' onClick={handleSubmit}><AiOutlineSearch /></button>
     </>
   )
 }
