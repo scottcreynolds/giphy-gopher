@@ -27,6 +27,7 @@ function App() {
     const results = await searchGifs(term)
     setGifs(results)
     setTerm(term)
+    setSearchType('search')
     setRecentSearches(await addRecentSearch(term))
     console.log(results)
   }
@@ -34,6 +35,7 @@ function App() {
   const getTrending = async () => {
     const results = await getTrendingGifs()
     setGifs(results)
+    setSearchType('trending')
   }
 
   const handleImageClick = (e) => {
@@ -68,6 +70,7 @@ function App() {
       <button title="Trending" className="search giphy-trending" onClick={getTrending}><AiOutlineStock /></button>
       </div>
       <RecentSearches handleSearch={handleSearch} recentSearches={recentSearches} />
+      <div>Showing results for: {searchType === 'trending' ? "Trending" : term}</div>
       <Masonry breakpointCols={breakpointCols} className="results-grid" columnClassName='results-col'>
         {gifs.map((gif) => (
           <div data-imgurl={gif.url} className="card" onClick={handleImageClick}><img src={gif.images.downsized.url} /></div>
