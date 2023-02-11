@@ -7,7 +7,7 @@ import { RecentSearches } from './features/RecentSearches'
 import { getRecentSearches, addRecentSearch } from './api/user'
 import Masonry from 'react-masonry-css'
 import useIntersectionObserver from '@react-hook/intersection-observer'
-import { AiOutlineFire } from 'react-icons/ai'
+import { AiOutlineStock } from 'react-icons/ai'
 const breakpointCols = {
   default: 3,
   1100: 2,
@@ -65,7 +65,7 @@ function App() {
     <div className="App">
       <div>
       <SearchInput handleSearch={handleSearch}/>
-      <button title="Trending" className="search giphy-trending" onClick={getTrending}><AiOutlineFire /></button>
+      <button title="Trending" className="search giphy-trending" onClick={getTrending}><AiOutlineStock /></button>
       </div>
       <RecentSearches handleSearch={handleSearch} recentSearches={recentSearches} />
       <Masonry breakpointCols={breakpointCols} className="results-grid" columnClassName='results-col'>
