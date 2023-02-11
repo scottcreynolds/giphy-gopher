@@ -47,25 +47,28 @@
 .search {
   display: inline-block;
   font-size: 1em;
-  border-radius: 5px;
-  padding: 0.5em 1em;
 }
 
 .giphy-search {
-  background: linear-gradient(45deg, rgb(153, 51, 255) 0%, rgb(255, 102, 102) 100%)
+  background: linear-gradient(45deg, rgb(153, 51, 255) 0%, rgb(255, 102, 102) 100%);
+  border-radius: 0;
 }
 
 .giphy-trending {
   background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  border-radius: 0 5px 5px 0;
 }
 
 input.search {
   border: 0;
   width: 75%;
   background: white;
+  padding: 0.6em 1em 0.4em 1em;
+  border-radius: 5px 0 0 5px;
 }
 
 button.search {
   border: 0;
   cursor: pointer;
+  padding: 0.5em 1em;
 }
