@@ -1,7 +1,5 @@
 export const getRecentSearches = () => {
-  // get from localstorage
   const searches = localStorage.getItem('searches')
-  console.log(searches)
   if (searches) {
     return JSON.parse(searches)
   }
@@ -9,10 +7,12 @@ export const getRecentSearches = () => {
 }
 
 export const addRecentSearch = (search) => {
-  // add to localstorage
+  // add to localstorage, most recent first
   const searches = getRecentSearches()
   searches.unshift(search)
-  localStorage.setItem('searches', JSON.stringify(searches))
-  console.log("bye")
-  return searches
+  // dedupe because I am lazy and type the same thing for testing a bunch
+  // also limit to something reasonable
+  const dedupedSearches = Array.from(new Set(searches)).slice(0,5)
+  localStorage.setItem('searches', JSON.stringify(dedupedSearches))
+  return dedupedSearches
 }

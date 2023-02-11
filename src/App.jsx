@@ -59,7 +59,7 @@ function App() {
     <div className="App">
       <SearchInput handleSearch={handleSearch}/>
       <button onClick={getTrending}>Get Trending</button>
-      <RecentSearches recentSearches={recentSearches} />
+      <RecentSearches handleSearch={handleSearch} recentSearches={recentSearches} />
       <Masonry breakpointCols={breakpointCols} className="results-grid" columnClassName='results-col'>
         {gifs.map((gif) => (
           <div><img src={gif.images.downsized.url} /></div>
