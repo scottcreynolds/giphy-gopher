@@ -28,11 +28,17 @@ function App() {
     setGifs(results)
     setTerm(term)
     setRecentSearches(await addRecentSearch(term))
+    console.log(results)
   }
 
   const getTrending = async () => {
     const results = await getTrendingGifs()
     setGifs(results)
+  }
+
+  const handleImageClick = (e) => {
+    e.preventDefault()
+    window.open(e.target.parentElement.dataset.imgurl)
   }
 
   useEffect(() => {
@@ -62,7 +68,7 @@ function App() {
       <RecentSearches handleSearch={handleSearch} recentSearches={recentSearches} />
       <Masonry breakpointCols={breakpointCols} className="results-grid" columnClassName='results-col'>
         {gifs.map((gif) => (
-          <div><img src={gif.images.downsized.url} /></div>
+          <div data-imgurl={gif.url} className="card" onClick={handleImageClick}><img src={gif.images.downsized.url} /></div>
         ))}
       </Masonry>
       {gifs.length > 0 && <hr ref={setRef} />}
