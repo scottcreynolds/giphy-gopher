@@ -10,13 +10,14 @@ export const SearchInput = ({handleSearch}) => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
+    if(!term) return
     handleSearch(term)
   }
 
   return (
-    <div>
-      <input type="text" placeholder='Search' value={term} onChange={handleChange} />
-      <button onClick={handleSubmit}>Go</button>
-    </div>
+    <>
+      <input className="search" type="text" placeholder='Search' value={term} onChange={handleChange} />
+      <button className='search' onClick={handleSubmit}>Go</button>
+    </>
   )
 }
