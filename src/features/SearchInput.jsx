@@ -7,15 +7,26 @@ export const SearchInput = ({handleSearch}) => {
     setTerm(e.target.value)
     e.preventDefault()
   }
+
   const handleSubmit = (e) => {
     e.preventDefault()
+    search()
+  }
+
+  const handleKeyUp = (e) => {
+    if(e.key === 'Enter') {
+      search()
+    }
+  }
+
+  const search = () => {
     if(!term) return
     handleSearch(term)
   }
 
   return (
     <>
-      <input className="search" type="text" placeholder='Search' value={term} onChange={handleChange} />
+      <input className="search" type="text" placeholder='Search' value={term} onChange={handleChange} onKeyUp={handleKeyUp} />
       <button title="Search" className='search giphy-search' onClick={handleSubmit}><AiOutlineSearch /></button>
     </>
   )
