@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
 import { SearchInput } from './features/SearchInput'
 import { searchGifs, getTrendingGifs } from './api/giphy'
