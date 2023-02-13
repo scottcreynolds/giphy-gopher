@@ -16,7 +16,6 @@ const breakpointCols = {
 }
 
 function App() {
-  const [count, setCount] = useState(0)
   const [gifs, setGifs] = useState([])
   const [recentSearches, setRecentSearches] = useState([])
   const [ref, setRef] = useState()
@@ -26,6 +25,17 @@ function App() {
 
   const ShowingResultsFor = () => {
     return(searchType && <div>Showing results for: {searchType === 'trending' ? "Trending" : term}</div>)
+  }
+
+  const SearchExperience = () => {
+    return(
+      <div>
+        <SearchInput handleSearch={handleSearch} />
+        <button title="Trending" className="search giphy-trending" onClick={getTrending}>
+          <AiOutlineStock />
+        </button>
+      </div>
+    )
   }
 
   const handleSearch = async (term) => {
@@ -71,10 +81,7 @@ function App() {
   return (
     <div className="App">
       <h1>Giphy Grabber - Grab You a Gif</h1>
-      <div>
-        <SearchInput handleSearch={handleSearch}/>
-        <button title="Trending" className="search giphy-trending" onClick={getTrending}><AiOutlineStock /></button>
-      </div>
+      <SearchExperience />
       <RecentSearches handleSearch={handleSearch} recentSearches={recentSearches} />
       <hr />
       <ShowingResultsFor />
@@ -86,6 +93,8 @@ function App() {
       {gifs.length > 0 && <hr ref={setRef} />}
     </div>
   )
+
+
 }
 
 export default App
