@@ -11,6 +11,8 @@ Enjoy!
 ---
 
 ## Some Notes on Tradeoffs
+![](https://media.giphy.com/media/XFuQ4InwtXBE4DDPHM/giphy.gif)
+
 Just to address some questions someone coming into this repo might have
 
 ---
@@ -30,6 +32,8 @@ Plus it would have felt bad to just put three of their components on a page and 
 ### Okay, then why react-masonry-css?
 
 I cannot imagine a world where I spend my time recreating the wheel on a well-established UI pattern. There's a masonry grid with easy to use responsive controls and easy extendable styling? Sign me up.
+
+![](https://media.giphy.com/media/VEsfbW0pBu145PPhOi/giphy.gif)
 
 ### Why vite?
 
@@ -53,8 +57,16 @@ The tradeoff here for time was to abstract it away into an environment variable 
 
 >>**TIL** if you have something in your global `.gitignore`, such as `.env`, you can unignore in a local `.gitignore` by adding `!` in front of the file name. Which seems like basic info but in over a decade of using git I guess I've never had to do that because it's kinda weird if you think about it.
 
+![](https://media.giphy.com/media/U23WekMlGy6cImpMim/giphy.gif)
+
 And yes, even if the `.env` file wasn't in the repo, the key is still available to anyone who knows how to use the network tab in their browser's dev tools.
 
 I could have (see above) set up a server to handle a request and hide the key in there, or split the difference and do it in a serverless function, but that seemed like a lot of overhead to ask of you and me for this demo. 
 
 AND even then, I would at least *consider* still exposing the key client-side rather than incurring a double-http-request to get the gifs. Because it's just getting gifs.
+
+So, as is often the case in technical interviews, a choice had to be made between showing that I know what to do vs sending you something that isn't a pain to run and review...
+
+![](https://media.giphy.com/media/KdBxqRPqBii9UpNzGw/giphy.gif)
+
+And I guess I chose option 3 - write a million paragraphs about it.
