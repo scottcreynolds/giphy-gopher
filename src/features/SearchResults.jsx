@@ -1,9 +1,10 @@
 import Masonry from 'react-masonry-css'
 
 const COLUMN_BREAKPOINTS = {
-  default: 3,
-  1100: 2,
-  700: 1
+  default: 4,
+  1100: 3,
+  700: 2,
+  500: 1
 }
 
 export const SearchResults = ({ gifs }) => {
