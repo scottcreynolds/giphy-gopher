@@ -7,7 +7,7 @@ export const RecentSearches = ({recentSearches, handleSearch}) => {
   }
 
   return (
-    <div>Recent Searches:  {recentSearches?.map((search, idx) => {
+    recentSearches && <div>Recent Searches:  {recentSearches.map((search, idx) => {
       return <button className="pill-button" onClick={handleClick} key={idx}>{search}</button>
     })}</div>
   )
