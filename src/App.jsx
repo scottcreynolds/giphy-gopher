@@ -4,16 +4,10 @@ import { SearchInput } from './features/SearchInput'
 import { searchGifs, getTrendingGifs } from './api/giphy'
 import { RecentSearches } from './features/RecentSearches'
 import { getRecentSearches, addRecentSearch } from './api/user'
-import Masonry from 'react-masonry-css'
+import { SearchResults } from './features/SearchResults'
 import useIntersectionObserver from '@react-hook/intersection-observer'
 import { AiOutlineStock } from 'react-icons/ai'
 import { NoResultsSad } from './features/NoResultsSad';
-
-const breakpointCols = {
-  default: 3,
-  1100: 2,
-  700: 1
-}
 
 function App() {
   const [gifs, setGifs] = useState([])
@@ -54,11 +48,6 @@ function App() {
     setSearchType('trending')
   }
 
-  const handleImageClick = (e) => {
-    e.preventDefault()
-    window.open(e.target.parentElement.dataset.imgurl)
-  }
-
   useEffect(() => {
     const results = getRecentSearches()
     setRecentSearches(results)
@@ -87,16 +76,10 @@ function App() {
       <hr />
       <ShowingResultsFor />
       <NoResultsSad oopsNoResults={oopsNoResults} searchTerm={term} />
-      <Masonry breakpointCols={breakpointCols} className="results-grid" columnClassName='results-col'>
-        {gifs.map((gif) => (
-          <div data-imgurl={gif.url} className="card" onClick={handleImageClick}><img src={gif.images.downsized.url} /></div>
-        ))}
-      </Masonry>
+      <SearchResults gifs={gifs} />
       {gifs.length > 0 && <hr ref={setRef} />}
     </div>
   )
-
-
 }
 
 export default App
