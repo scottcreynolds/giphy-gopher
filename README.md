@@ -3,7 +3,9 @@
 Enjoy!
 ## To Run
 
-`npm install && npm run dev`
+1. Clone repository
+2. `make prepare` - install dependencies
+3. `make dev` - to run the dev server
 
 ---
 
