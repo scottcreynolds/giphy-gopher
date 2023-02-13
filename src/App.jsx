@@ -10,7 +10,6 @@ import useIntersectionObserver from '@react-hook/intersection-observer'
 import { AiOutlineStock } from 'react-icons/ai'
 import { NoResultsSad } from './features/NoResultsSad'
 
-
 function App() {
   const [gifs, setGifs] = useState([])
   const [recentSearches, setRecentSearches] = useState([])
@@ -21,7 +20,7 @@ function App() {
   const [oopsNoResults, setOopsNoResults] = useState(false)
 
   const ShowingResultsFor = () => {
-    return(searchType && !oopsNoResults && <h2>Showing results for: {searchType === 'trending' ? "Trending" : term}</h2>)
+    return(searchType && !oopsNoResults && <h2>Showing results for: {searchType === 'trending' ? "Trending" : term}</h2>);
   }
 
   const SearchExperience = () => {
