@@ -9,13 +9,13 @@ const COLUMN_BREAKPOINTS = {
 export const SearchResults = ({ gifs }) => {
   const handleImageClick = (e) => {
     e.preventDefault()
-    window.open(e.target.parentElement.dataset.imgurl)
+    window.open(e.target.parentElement.dataset.imgurl);
   }
 
   return (
     <Masonry breakpointCols={COLUMN_BREAKPOINTS} className="results-grid" columnClassName='results-col'>
         {gifs.map((gif) => (
-          <div data-imgurl={gif.url} className="card" onClick={handleImageClick}><img src={gif.images.downsized.url} /></div>
+          <div key={gif.id} data-imgurl={gif.url} className="card" onClick={handleImageClick}><img src={gif.images.downsized.url} /></div>
         ))}
       </Masonry>
 
