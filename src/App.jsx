@@ -8,7 +8,8 @@ import { getRecentSearches, addRecentSearch } from './api/user'
 import { SearchResults } from './features/SearchResults'
 import useIntersectionObserver from '@react-hook/intersection-observer'
 import { AiOutlineStock } from 'react-icons/ai'
-import { NoResultsSad } from './features/NoResultsSad';
+import { NoResultsSad } from './features/NoResultsSad'
+
 
 function App() {
   const [gifs, setGifs] = useState([])
