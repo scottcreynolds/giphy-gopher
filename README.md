@@ -4,8 +4,9 @@ Enjoy!
 ## To Run
 
 1. Clone repository
-2. `make prepare` - install dependencies
-3. `make dev` - to run the dev server
+2. from project root, run: `make prepare` - install dependencies
+3. from project root, run: `make dev` - to run the dev server
+4. in the running vite dev server, type `o` to open the app in your browser or navigate to http://127.0.0.1:5173/
 
 ---
 
