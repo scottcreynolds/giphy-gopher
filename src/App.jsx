@@ -8,6 +8,7 @@ import { getRecentSearches, addRecentSearch } from './api/user'
 import Masonry from 'react-masonry-css'
 import useIntersectionObserver from '@react-hook/intersection-observer'
 import { AiOutlineStock } from 'react-icons/ai'
+
 const breakpointCols = {
   default: 3,
   1100: 2,
@@ -21,7 +22,11 @@ function App() {
   const [ref, setRef] = useState()
   const {isIntersecting} = useIntersectionObserver(ref)
   const [term, setTerm] = useState('')
-  const [searchType, setSearchType] = useState('trending')
+  const [searchType, setSearchType] = useState('')
+
+  const ShowingResultsFor = () => {
+    return(searchType && <div>Showing results for: {searchType === 'trending' ? "Trending" : term}</div>)
+  }
 
   const handleSearch = async (term) => {
     const results = await searchGifs(term)
@@ -65,12 +70,14 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Giphy Grabber - Grab You a Gif</h1>
       <div>
-      <SearchInput handleSearch={handleSearch}/>
-      <button title="Trending" className="search giphy-trending" onClick={getTrending}><AiOutlineStock /></button>
+        <SearchInput handleSearch={handleSearch}/>
+        <button title="Trending" className="search giphy-trending" onClick={getTrending}><AiOutlineStock /></button>
       </div>
       <RecentSearches handleSearch={handleSearch} recentSearches={recentSearches} />
-      <div>Showing results for: {searchType === 'trending' ? "Trending" : term}</div>
+      <hr />
+      <ShowingResultsFor />
       <Masonry breakpointCols={breakpointCols} className="results-grid" columnClassName='results-col'>
         {gifs.map((gif) => (
           <div data-imgurl={gif.url} className="card" onClick={handleImageClick}><img src={gif.images.downsized.url} /></div>
